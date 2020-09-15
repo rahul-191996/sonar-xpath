@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:sql-system-api="http://www.mulesoft.org/schema/mule/sql-system-api"
+	xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/sql-system-api http://www.mulesoft.org/schema/mule/sql-system-api/current/mule-sql-system-api.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<db:config name="Database_Config" doc:name="Database Config" doc:id="ab0f476c-5902-426d-a8e0-d2e7fd517463" >
+		<db:my-sql-connection host="db4free.net" port="3306" user="#[payload.User]" password="payload.Password" database="#[payload.Database]"/>
+	</db:config>
+	<sql-system-api:config name="Sql_system_api_Config" doc:name="Sql-system-api Config" doc:id="e3b1d622-4a21-4512-94d9-870729e20a8a" >
+		<sql-system-api:connection />
+	</sql-system-api:config>
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="500f577a-03fb-499a-863d-2257d67c634f" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="raml-connFlow" doc:id="17300573-944a-4711-8c79-2b1cd68586a7" >
+		<http:listener doc:name="Listener" doc:id="03a875f3-8aeb-4dcb-974a-d2dfc8e709ca" config-ref="HTTP_Listener_config" path="/abcd"/>
+		<logger level="INFO" doc:name="Logger" doc:id="4f3c87c8-b8a0-4c80-9e51-f1bba993dc8d" message="#[payload]"/>
+	</flow>
+	<sub-flow name="raml-connSub_Flow" doc:id="b800e8c4-95d0-401e-a7f5-085407e1ed96" >
+		<logger level="INFO" doc:name="Logger" doc:id="2375dff8-edc7-4626-9fd2-d4568a9c1f18" message="#[payload]"/>
+	</sub-flow>
+</mule>
