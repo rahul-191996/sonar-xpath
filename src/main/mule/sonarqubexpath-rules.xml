@@ -15,7 +15,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="500f577a-03fb-499a-863d-2257d67c634f" >
 		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
-	<flow name="raml-connFlow" doc:id="17300573-944a-4711-8c79-2b1cd68586a7" >
+	<flow name="raml-connFlow" doc:id="17300573-944a-4711-8c79-2b1cd68586a7" doc:description="raml flow">
 		<http:listener doc:name="Listener" doc:id="03a875f3-8aeb-4dcb-974a-d2dfc8e709ca" config-ref="HTTP_Listener_config" path="/abcd"/>
 		<logger level="INFO" doc:name="Logger" doc:id="4f3c87c8-b8a0-4c80-9e51-f1bba993dc8d" message="#[payload]"/>
 	</flow>
