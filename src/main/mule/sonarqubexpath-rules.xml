@@ -32,12 +32,21 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 	</flow>
 	<sub-flow name="sonarqubexpath-rulesSub_Flow" doc:id="fa6025b3-f46f-40e7-88cb-2c7964468af0" >
 		<logger level="INFO" doc:name="Logger" doc:id="4f01065a-594a-4e5b-8324-1b3e9a7a13a0" message="abcd"/>
+		<choice doc:name="Choice" doc:id="585fed97-36c9-4452-a2e0-81f414bb0640" >
+			<when />
+		</choice>
 	</sub-flow>
 	<flow name="sonarqubexpath-rulesFlow1" doc:id="03f887a9-6f0d-49b8-8e7e-6e1f5dd37b75" >
 		<logger level="INFO" doc:name="Logger" doc:id="5d4f5a9b-9fb7-4e30-a88f-d2fa3cba1e5b" />
+		<choice doc:name="Choice" doc:id="2398d97a-589c-48ce-ae91-58ec561ee659" >
+			<when />
+		</choice>
 	</flow>
 	<flow name="sonarqubexpath-rulesFlow2" doc:id="fcf07e5d-8179-4ea8-89e5-e1af31d6af47" >
 		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="84940d46-4ab3-422a-95d8-5427a44a7f14" />
+		<choice doc:name="Choice" doc:id="8abf7269-88d3-4127-bdbb-569bd801c94c" >
+			<when />
+		</choice>
 	</flow>
 	<flow name="sonarqubexpath-rulesFlow3" doc:id="4f7273a0-8da3-43b3-b7d2-98785f0d4c67" >
 		<ee:transform doc:name="Transform Message" doc:id="2e7cbf0a-9c15-49ee-b11f-8af8042266e2" >
@@ -49,15 +58,27 @@ output application/java
 }]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
+		<choice doc:name="Choice" doc:id="76c15f29-79ab-4ec4-a688-46d48c6d8a2e" >
+			<when />
+		</choice>
 	</flow>
 	<flow name="sonarqubexpath-rulesFlow4" doc:id="fc101947-2710-4b54-8e34-897a9144b19b" >
 		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="63e5e241-e743-4b89-8a85-2b7237f14fd3" />
+		<choice doc:name="Choice" doc:id="a08e5875-f4a7-4a06-b887-f21945e111a1" >
+			<when />
+		</choice>
 	</flow>
 	<flow name="sonarqubexpath-rulesFlow5" doc:id="a6990fdd-9de4-428c-a69a-5d4521215dc9" >
 		<remove-variable doc:name="Remove Variable" doc:id="a4caa17d-66aa-4a97-bd41-0e57dfcd1319" />
+		<choice doc:name="Choice" doc:id="8913640b-f79f-47e2-a5ec-73ee90f944dd" >
+			<when />
+		</choice>
 	</flow>
 	<flow name="sonarqubexpath-rulesFlow6" doc:id="8ab1e953-61e0-4e4a-a5f4-b4fcccbda27c" >
 		<logger level="INFO" doc:name="Logger" doc:id="c09c0541-4e29-49a8-854e-5eb5cccd5b4d" message='#["hi"]'/>
+		<choice doc:name="Choice" doc:id="277792d8-ee23-4536-b6b2-a4abbe4fb72b" >
+			<when />
+		</choice>
 	</flow>
 
 </mule>
