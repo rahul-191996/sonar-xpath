@@ -36,5 +36,30 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 			<when />
 		</choice>
 	</flow>
+	<flow name="sonarqubexpath-rulesFlow2" doc:id="33184f53-3950-4bbc-9d10-bde74646888a" >
+		<choice doc:name="Choice" doc:id="a0137a1d-cfb2-438c-b1b7-c945833490b5" >
+			<when />
+		</choice>
+	</flow>
+	<flow name="sonarqubexpath-rulesFlow3" doc:id="f9192d26-8f63-4832-871c-02980024b6e6" >
+		<choice doc:name="Choice" doc:id="995793f3-518e-48c3-b1a8-965017178562" >
+			<when />
+		</choice>
+	</flow>
+	<flow name="sonarqubexpath-rulesFlow4" doc:id="af1bf93e-282d-473f-b6f2-aa4c214377d6" >
+		<choice doc:name="Choice" doc:id="dd09eebd-fd3a-41ca-9d7c-ea49dd74b5ac" >
+			<when />
+		</choice>
+	</flow>
+	<flow name="sonarqubexpath-rulesFlow5" doc:id="2cc82a40-001e-4a0e-9039-adb229fe164f" >
+		<choice doc:name="Choice" doc:id="2df29373-3284-4d0f-971d-5c753d3e81f3" >
+			<when />
+		</choice>
+	</flow>
+	<flow name="sonarqubexpath-rulesFlow6" doc:id="8ab1e953-61e0-4e4a-a5f4-b4fcccbda27c" >
+		<choice doc:name="Choice" doc:id="8495cbce-2635-4794-860a-585b0f7aaa9c" >
+			<when />
+		</choice>
+	</flow>
 
 </mule>
