@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:sql-system-api="http://www.mulesoft.org/schema/mule/sql-system-api"
-	xmlns:db="http://www.mulesoft.org/schema/mule/db"
-	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:sql-system-api="http://www.mulesoft.org/schema/mule/sql-system-api"
+	xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
 http://www.mulesoft.org/schema/mule/sql-system-api http://www.mulesoft.org/schema/mule/sql-system-api/current/mule-sql-system-api.xsd
-http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
 	
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="500f577a-03fb-499a-863d-2257d67c634f" >
 		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
 	<flow name="raml-connFlow" doc:id="17300573-944a-4711-8c79-2b1cd68586a7" doc:description="bkhb">
 		<http:listener doc:name="Listener" doc:id="03a875f3-8aeb-4dcb-974a-d2dfc8e709ca" config-ref="HTTP_Listener_config" path="/abcd"/>
-		<logger level="INFO" doc:name="Logger" doc:id="4f3c87c8-b8a0-4c80-9e51-f1bba993dc8d" message="#[payload]"/>
+		<logger level="DEBUG" doc:name="Logger" doc:id="4f3c87c8-b8a0-4c80-9e51-f1bba993dc8d" message="#[payload]"/>
 		<choice doc:name="Choice" doc:id="2903ce2e-ad17-4fe0-b699-ca572104ad42" >
 			<when />
 		</choice>
@@ -21,42 +22,42 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		</choice>
 	
 </flow>
-	<sub-flow name="raml-connSub_Flow" doc:id="b800e8c4-95d0-401e-a7f5-085407e1ed96" doc:description="abcd">
-		<logger level="INFO" doc:name="Logger" doc:id="2375dff8-edc7-4626-9fd2-d4568a9c1f18" message="#[payload]"/>
 	
-</sub-flow>
 	<flow name="sonarqubexpath-rulesFlow" doc:id="b7df9536-1bd2-4763-8897-05ea20c0b7f2" >
 		<http:listener doc:name="Listener" doc:id="1ecd5899-5910-45b7-92fb-ad8dd0e15813" config-ref="HTTP_Listener_config" path="/demo"/>
+		<logger level="DEBUG" doc:name="Logger" doc:id="77ad60c3-cb56-4942-be6b-e87cd91b202e" message='#["a vhx"]'/>
 		<choice doc:name="Choice" doc:id="0bd12702-146e-4e39-8d6b-eb8bd2d7c190" >
 			<when />
 		</choice>
 	</flow>
-	<flow name="sonarqubexpath-rulesFlow1" doc:id="3de70cd6-c36c-465d-b2ea-358143e32c77" >
-		<choice doc:name="Choice" doc:id="cdbc6161-4135-41dd-80b6-3db88ac50e7d" >
-			<when />
-		</choice>
+	<sub-flow name="sonarqubexpath-rulesSub_Flow" doc:id="fa6025b3-f46f-40e7-88cb-2c7964468af0" >
+		<logger level="INFO" doc:name="Logger" doc:id="4f01065a-594a-4e5b-8324-1b3e9a7a13a0" message="abcd"/>
+	</sub-flow>
+	<flow name="sonarqubexpath-rulesFlow1" doc:id="03f887a9-6f0d-49b8-8e7e-6e1f5dd37b75" >
+		<logger level="INFO" doc:name="Logger" doc:id="5d4f5a9b-9fb7-4e30-a88f-d2fa3cba1e5b" />
 	</flow>
-	<flow name="sonarqubexpath-rulesFlow2" doc:id="33184f53-3950-4bbc-9d10-bde74646888a" >
-		<choice doc:name="Choice" doc:id="a0137a1d-cfb2-438c-b1b7-c945833490b5" >
-			<when />
-		</choice>
+	<flow name="sonarqubexpath-rulesFlow2" doc:id="fcf07e5d-8179-4ea8-89e5-e1af31d6af47" >
+		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="84940d46-4ab3-422a-95d8-5427a44a7f14" />
 	</flow>
-	<flow name="sonarqubexpath-rulesFlow3" doc:id="f9192d26-8f63-4832-871c-02980024b6e6" >
-		<choice doc:name="Choice" doc:id="995793f3-518e-48c3-b1a8-965017178562" >
-			<when />
-		</choice>
+	<flow name="sonarqubexpath-rulesFlow3" doc:id="4f7273a0-8da3-43b3-b7d2-98785f0d4c67" >
+		<ee:transform doc:name="Transform Message" doc:id="2e7cbf0a-9c15-49ee-b11f-8af8042266e2" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+{
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
 	</flow>
-	<flow name="sonarqubexpath-rulesFlow4" doc:id="af1bf93e-282d-473f-b6f2-aa4c214377d6" >
-		<choice doc:name="Choice" doc:id="dd09eebd-fd3a-41ca-9d7c-ea49dd74b5ac" >
-			<when />
-		</choice>
+	<flow name="sonarqubexpath-rulesFlow4" doc:id="fc101947-2710-4b54-8e34-897a9144b19b" >
+		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="63e5e241-e743-4b89-8a85-2b7237f14fd3" />
 	</flow>
-	<flow name="sonarqubexpath-rulesFlow5" doc:id="2cc82a40-001e-4a0e-9039-adb229fe164f" >
-		<choice doc:name="Choice" doc:id="2df29373-3284-4d0f-971d-5c753d3e81f3" >
-			<when />
-		</choice>
+	<flow name="sonarqubexpath-rulesFlow5" doc:id="a6990fdd-9de4-428c-a69a-5d4521215dc9" >
+		<remove-variable doc:name="Remove Variable" doc:id="a4caa17d-66aa-4a97-bd41-0e57dfcd1319" />
 	</flow>
 	<flow name="sonarqubexpath-rulesFlow6" doc:id="8ab1e953-61e0-4e4a-a5f4-b4fcccbda27c" >
+		<logger level="INFO" doc:name="Logger" doc:id="c09c0541-4e29-49a8-854e-5eb5cccd5b4d" message='#["hi"]'/>
 	</flow>
 
 </mule>
