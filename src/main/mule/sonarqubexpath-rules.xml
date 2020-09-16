@@ -57,9 +57,6 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		</choice>
 	</flow>
 	<flow name="sonarqubexpath-rulesFlow6" doc:id="8ab1e953-61e0-4e4a-a5f4-b4fcccbda27c" >
-		<choice doc:name="Choice" doc:id="8495cbce-2635-4794-860a-585b0f7aaa9c" >
-			<when />
-		</choice>
 	</flow>
 
 </mule>
