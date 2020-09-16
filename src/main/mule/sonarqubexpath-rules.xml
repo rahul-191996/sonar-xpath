@@ -25,4 +25,16 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<logger level="INFO" doc:name="Logger" doc:id="2375dff8-edc7-4626-9fd2-d4568a9c1f18" message="#[payload]"/>
 	
 </sub-flow>
+	<flow name="sonarqubexpath-rulesFlow" doc:id="b7df9536-1bd2-4763-8897-05ea20c0b7f2" >
+		<http:listener doc:name="Listener" doc:id="1ecd5899-5910-45b7-92fb-ad8dd0e15813" config-ref="HTTP_Listener_config" path="/demo"/>
+		<choice doc:name="Choice" doc:id="0bd12702-146e-4e39-8d6b-eb8bd2d7c190" >
+			<when />
+		</choice>
+	</flow>
+	<flow name="sonarqubexpath-rulesFlow1" doc:id="3de70cd6-c36c-465d-b2ea-358143e32c77" >
+		<choice doc:name="Choice" doc:id="cdbc6161-4135-41dd-80b6-3db88ac50e7d" >
+			<when />
+		</choice>
+	</flow>
+
 </mule>
