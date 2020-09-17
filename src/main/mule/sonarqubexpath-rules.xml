@@ -32,10 +32,10 @@ http://www.mulesoft.org/schema/mule/sftp http://www.mulesoft.org/schema/mule/sft
 	
 </flow>
 	
-	<flow name="sonarqubexpath-rulesFlow7" doc:id="67ad9083-56f3-4fcf-94d2-de7d7e9d16d5" >
+	<flow name="sonarqubexpath-rulesflow7" doc:id="67ad9083-56f3-4fcf-94d2-de7d7e9d16d5" >
 		<db:execute-script doc:name="Execute script" doc:id="4a0aa0af-2fb3-4312-85df-31676fe9b6f2" />
 	</flow>
-	<flow name="sonarqubexpath-rulesFlow" doc:id="b7df9536-1bd2-4763-8897-05ea20c0b7f2" >
+	<flow name="sonarqubexpath-rulesflow" doc:id="b7df9536-1bd2-4763-8897-05ea20c0b7f2" >
 		<http:listener doc:name="Listener" doc:id="1ecd5899-5910-45b7-92fb-ad8dd0e15813" config-ref="HTTP_Listener_config" path="/demo"/>
 		<logger level="DEBUG" doc:name="Logger" doc:id="77ad60c3-cb56-4942-be6b-e87cd91b202e" message='#["a vhx"]'/>
 		<scatter-gather doc:name="Scatter-Gather" doc:id="ac5ce33d-f051-45e6-86ee-66e9844241fd" />
@@ -50,21 +50,21 @@ http://www.mulesoft.org/schema/mule/sftp http://www.mulesoft.org/schema/mule/sft
 			<when />
 		</choice>
 	</sub-flow>
-	<flow name="sonarqubexpath-rulesFlow1" doc:id="03f887a9-6f0d-49b8-8e7e-6e1f5dd37b75" >
+	<flow name="sonarqubexpath-rulesflow1" doc:id="03f887a9-6f0d-49b8-8e7e-6e1f5dd37b75" >
 		<logger level="INFO" doc:name="Logger" doc:id="5d4f5a9b-9fb7-4e30-a88f-d2fa3cba1e5b" />
 		<scatter-gather doc:name="Scatter-Gather" doc:id="6e1a6380-df74-4f0e-8966-b388f36daa43" />
 		<choice doc:name="Choice" doc:id="2398d97a-589c-48ce-ae91-58ec561ee659" >
 			<when />
 		</choice>
 	</flow>
-	<flow name="sonarqubexpath-rulesFlow2" doc:id="fcf07e5d-8179-4ea8-89e5-e1af31d6af47" >
+	<flow name="sonarqubexpath-rulesflow2" doc:id="fcf07e5d-8179-4ea8-89e5-e1af31d6af47" >
 		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="84940d46-4ab3-422a-95d8-5427a44a7f14" />
 		<scatter-gather doc:name="Scatter-Gather" doc:id="c75848f0-dce2-4119-8612-66a78084324d" />
 		<choice doc:name="Choice" doc:id="8abf7269-88d3-4127-bdbb-569bd801c94c" >
 			<when />
 		</choice>
 	</flow>
-	<flow name="sonarqubexpath-rulesFlow3" doc:id="4f7273a0-8da3-43b3-b7d2-98785f0d4c67" >
+	<flow name="sonarqubexpath-rulesflow3" doc:id="4f7273a0-8da3-43b3-b7d2-98785f0d4c67" >
 		<ee:transform doc:name="Transform Message" doc:id="2e7cbf0a-9c15-49ee-b11f-8af8042266e2" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
@@ -79,21 +79,21 @@ output application/java
 			<when />
 		</choice>
 	</flow>
-	<flow name="sonarqubexpath-rulesFlow4" doc:id="fc101947-2710-4b54-8e34-897a9144b19b" >
+	<flow name="sonarqubexpath-rulesflow4" doc:id="fc101947-2710-4b54-8e34-897a9144b19b" >
 		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="63e5e241-e743-4b89-8a85-2b7237f14fd3" />
 		<scatter-gather doc:name="Scatter-Gather" doc:id="3a378726-2656-45a6-a142-19966ba0e4f0" />
 		<choice doc:name="Choice" doc:id="a08e5875-f4a7-4a06-b887-f21945e111a1" >
 			<when />
 		</choice>
 	</flow>
-	<flow name="sonarqubexpath-rulesFlow5" doc:id="a6990fdd-9de4-428c-a69a-5d4521215dc9" >
+	<flow name="sonarqubexpath-rulesflow5" doc:id="a6990fdd-9de4-428c-a69a-5d4521215dc9" >
 		<remove-variable doc:name="Remove Variable" doc:id="a4caa17d-66aa-4a97-bd41-0e57dfcd1319" />
 		<scatter-gather doc:name="Scatter-Gather" doc:id="62393c25-5a05-4e0a-8dfc-6f70dcbad455" />
 		<choice doc:name="Choice" doc:id="8913640b-f79f-47e2-a5ec-73ee90f944dd" >
 			<when />
 		</choice>
 	</flow>
-	<flow name="sonarqubexpath-rulesFlow6" doc:id="8ab1e953-61e0-4e4a-a5f4-b4fcccbda27c" >
+	<flow name="sonarqubexpath-rulesflow6" doc:id="8ab1e953-61e0-4e4a-a5f4-b4fcccbda27c" >
 		<logger level="INFO" doc:name="Logger" doc:id="c09c0541-4e29-49a8-854e-5eb5cccd5b4d" message='#["hi"]'/>
 		<scatter-gather doc:name="Scatter-Gather" doc:id="8817fc2b-c4b3-42ae-929f-e47377e84bdf" />
 		<choice doc:name="Choice" doc:id="1258eb03-b769-4ad7-a0de-3990a0673408" >
