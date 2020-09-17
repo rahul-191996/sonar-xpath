@@ -13,15 +13,19 @@ http://www.mulesoft.org/schema/mule/sftp http://www.mulesoft.org/schema/mule/sft
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="500f577a-03fb-499a-863d-2257d67c634f" >
 		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
-	<ftp:config name="FTP_Config1" doc:name="FTConfig" doc:id="fd6e3b49-e1f5-471f-a3ac-2ca4b0e14704" >
+	<ftp:config name="FTP_Config1" doc:name="FTPConfig" doc:id="fd6e3b49-e1f5-471f-a3ac-2ca4b0e14704" >
 		<ftp:connection />
 	</ftp:config>
+	<sftp:config name="SFTP_Config" doc:name="SFTP Config" doc:id="ab33f4c6-fb2a-4a8e-88ac-b91091d66553" >
+		<sftp:connection />
+	</sftp:config>
+	<configuration-properties doc:name="Configuration properties" doc:id="db001265-877e-4213-8fa8-a77f4259b921" file="config.raml" />
 	<flow name="raml-connFlow" doc:id="17300573-944a-4711-8c79-2b1cd68586a7" doc:description="bkhb">
 		<http:listener doc:name="Listener" doc:id="03a875f3-8aeb-4dcb-974a-d2dfc8e709ca" config-ref="HTTP_Listener_config" path="/abcd"/>
 		<logger level="DEBUG" doc:name="Logger" doc:id="4f3c87c8-b8a0-4c80-9e51-f1bba993dc8d" message="#[payload]"/>
 		<choice doc:name="Choice" doc:id="2903ce2e-ad17-4fe0-b699-ca572104ad42" >
 			<when >
-				<sftp:list doc:name="List" doc:id="cad34d75-16b5-4ee5-8ba3-d534530b8c28" />
+				<sftp:list doc:name="List" doc:id="cad34d75-16b5-4ee5-8ba3-d534530b8c28" config-ref="SFTP_Config"/>
 			</when>
 		</choice>
 		<scatter-gather doc:name="Scatter-Gather" doc:id="a39dfcfd-ce33-4019-970f-95257f7e99b4" />
@@ -39,7 +43,7 @@ http://www.mulesoft.org/schema/mule/sftp http://www.mulesoft.org/schema/mule/sft
 			<when />
 		</choice>
 	</flow>
-	<sub-flow name="sonarqubexpath-rulesSub_Flow" doc:id="fa6025b3-f46f-40e7-88cb-2c7964468af0" >
+	<sub-flow name="sonarqubexpath-rulesSub_Flow" doc:id="fa6025b3-f46f-40e7-88cb-2c7964468af0" doc:description="abcd">
 		<logger level="INFO" doc:name="Logger" doc:id="4f01065a-594a-4e5b-8324-1b3e9a7a13a0" message="abcd"/>
 		<scatter-gather doc:name="Scatter-Gather" doc:id="49d24675-2c3f-4cb2-a21a-36eb2fd3419a" />
 		<choice doc:name="Choice" doc:id="585fed97-36c9-4452-a2e0-81f414bb0640" >
