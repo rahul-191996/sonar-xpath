@@ -1,49 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
-	xmlns:sql-system-api="http://www.mulesoft.org/schema/mule/sql-system-api"
-	xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+<mule xmlns:sftp="http://www.mulesoft.org/schema/mule/sftp" xmlns:ftp="http://www.mulesoft.org/schema/mule/ftp"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:sql-system-api="http://www.mulesoft.org/schema/mule/sql-system-api" xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
 http://www.mulesoft.org/schema/mule/sql-system-api http://www.mulesoft.org/schema/mule/sql-system-api/current/mule-sql-system-api.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
-http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/ftp http://www.mulesoft.org/schema/mule/ftp/current/mule-ftp.xsd
+http://www.mulesoft.org/schema/mule/sftp http://www.mulesoft.org/schema/mule/sftp/current/mule-sftp.xsd">
 	
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="500f577a-03fb-499a-863d-2257d67c634f" >
 		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
+	<ftp:config name="FTP_Config1" doc:name="FTConfig" doc:id="fd6e3b49-e1f5-471f-a3ac-2ca4b0e14704" >
+		<ftp:connection />
+	</ftp:config>
 	<flow name="raml-connFlow" doc:id="17300573-944a-4711-8c79-2b1cd68586a7" doc:description="bkhb">
 		<http:listener doc:name="Listener" doc:id="03a875f3-8aeb-4dcb-974a-d2dfc8e709ca" config-ref="HTTP_Listener_config" path="/abcd"/>
 		<logger level="DEBUG" doc:name="Logger" doc:id="4f3c87c8-b8a0-4c80-9e51-f1bba993dc8d" message="#[payload]"/>
 		<choice doc:name="Choice" doc:id="2903ce2e-ad17-4fe0-b699-ca572104ad42" >
-			<when />
+			<when >
+				<sftp:list doc:name="List" doc:id="cad34d75-16b5-4ee5-8ba3-d534530b8c28" />
+			</when>
 		</choice>
-		<choice doc:name="Choice" doc:id="1c4987d1-204d-4fa1-b256-2afc6f58f9dc" >
-			<when />
-		</choice>
+		<scatter-gather doc:name="Scatter-Gather" doc:id="a39dfcfd-ce33-4019-970f-95257f7e99b4" />
 	
 </flow>
 	
 	<flow name="sonarqubexpath-rulesFlow" doc:id="b7df9536-1bd2-4763-8897-05ea20c0b7f2" >
 		<http:listener doc:name="Listener" doc:id="1ecd5899-5910-45b7-92fb-ad8dd0e15813" config-ref="HTTP_Listener_config" path="/demo"/>
 		<logger level="DEBUG" doc:name="Logger" doc:id="77ad60c3-cb56-4942-be6b-e87cd91b202e" message='#["a vhx"]'/>
+		<scatter-gather doc:name="Scatter-Gather" doc:id="ac5ce33d-f051-45e6-86ee-66e9844241fd" />
 		<choice doc:name="Choice" doc:id="0bd12702-146e-4e39-8d6b-eb8bd2d7c190" >
 			<when />
 		</choice>
 	</flow>
 	<sub-flow name="sonarqubexpath-rulesSub_Flow" doc:id="fa6025b3-f46f-40e7-88cb-2c7964468af0" >
 		<logger level="INFO" doc:name="Logger" doc:id="4f01065a-594a-4e5b-8324-1b3e9a7a13a0" message="abcd"/>
+		<scatter-gather doc:name="Scatter-Gather" doc:id="49d24675-2c3f-4cb2-a21a-36eb2fd3419a" />
 		<choice doc:name="Choice" doc:id="585fed97-36c9-4452-a2e0-81f414bb0640" >
 			<when />
 		</choice>
 	</sub-flow>
 	<flow name="sonarqubexpath-rulesFlow1" doc:id="03f887a9-6f0d-49b8-8e7e-6e1f5dd37b75" >
 		<logger level="INFO" doc:name="Logger" doc:id="5d4f5a9b-9fb7-4e30-a88f-d2fa3cba1e5b" />
+		<scatter-gather doc:name="Scatter-Gather" doc:id="6e1a6380-df74-4f0e-8966-b388f36daa43" />
 		<choice doc:name="Choice" doc:id="2398d97a-589c-48ce-ae91-58ec561ee659" >
 			<when />
 		</choice>
 	</flow>
 	<flow name="sonarqubexpath-rulesFlow2" doc:id="fcf07e5d-8179-4ea8-89e5-e1af31d6af47" >
 		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="84940d46-4ab3-422a-95d8-5427a44a7f14" />
+		<scatter-gather doc:name="Scatter-Gather" doc:id="c75848f0-dce2-4119-8612-66a78084324d" />
 		<choice doc:name="Choice" doc:id="8abf7269-88d3-4127-bdbb-569bd801c94c" >
 			<when />
 		</choice>
@@ -58,27 +67,32 @@ output application/java
 }]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
+		<scatter-gather doc:name="Scatter-Gather" doc:id="4dc80290-6a0d-42a2-9173-49ca91c7d718" />
 		<choice doc:name="Choice" doc:id="76c15f29-79ab-4ec4-a688-46d48c6d8a2e" >
 			<when />
 		</choice>
 	</flow>
 	<flow name="sonarqubexpath-rulesFlow4" doc:id="fc101947-2710-4b54-8e34-897a9144b19b" >
 		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="63e5e241-e743-4b89-8a85-2b7237f14fd3" />
+		<scatter-gather doc:name="Scatter-Gather" doc:id="3a378726-2656-45a6-a142-19966ba0e4f0" />
 		<choice doc:name="Choice" doc:id="a08e5875-f4a7-4a06-b887-f21945e111a1" >
 			<when />
 		</choice>
 	</flow>
 	<flow name="sonarqubexpath-rulesFlow5" doc:id="a6990fdd-9de4-428c-a69a-5d4521215dc9" >
 		<remove-variable doc:name="Remove Variable" doc:id="a4caa17d-66aa-4a97-bd41-0e57dfcd1319" />
+		<scatter-gather doc:name="Scatter-Gather" doc:id="62393c25-5a05-4e0a-8dfc-6f70dcbad455" />
 		<choice doc:name="Choice" doc:id="8913640b-f79f-47e2-a5ec-73ee90f944dd" >
 			<when />
 		</choice>
 	</flow>
 	<flow name="sonarqubexpath-rulesFlow6" doc:id="8ab1e953-61e0-4e4a-a5f4-b4fcccbda27c" >
 		<logger level="INFO" doc:name="Logger" doc:id="c09c0541-4e29-49a8-854e-5eb5cccd5b4d" message='#["hi"]'/>
-		<choice doc:name="Choice" doc:id="277792d8-ee23-4536-b6b2-a4abbe4fb72b" >
+		<scatter-gather doc:name="Scatter-Gather" doc:id="8817fc2b-c4b3-42ae-929f-e47377e84bdf" />
+		<choice doc:name="Choice" doc:id="1258eb03-b769-4ad7-a0de-3990a0673408" >
 			<when />
 		</choice>
-	</flow>
+	
+</flow>
 
 </mule>
