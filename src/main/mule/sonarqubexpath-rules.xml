@@ -11,15 +11,6 @@ http://www.mulesoft.org/schema/mule/ftp http://www.mulesoft.org/schema/mule/ftp/
 http://www.mulesoft.org/schema/mule/sftp http://www.mulesoft.org/schema/mule/sftp/current/mule-sftp.xsd
 http://www.mulesoft.org/schema/mule/email http://www.mulesoft.org/schema/mule/email/current/mule-email.xsd">
 	
-	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="500f577a-03fb-499a-863d-2257d67c634f" >
-		<http:listener-connection host="0.0.0.0" port="8081" />
-	</http:listener-config>
-	<ftp:config name="FTP_Config1" doc:name="FTPConfig" doc:id="fd6e3b49-e1f5-471f-a3ac-2ca4b0e14704" >
-		<ftp:connection />
-	</ftp:config>
-	<sftp:config name="SFTP_Config" doc:name="SFTP Config" doc:id="ab33f4c6-fb2a-4a8e-88ac-b91091d66553" >
-		<sftp:connection />
-	</sftp:config>
 	
 	<flow name="raml-connflow" doc:id="17300573-944a-4711-8c79-2b1cd68586a7" doc:description="bkhb">
 		<http:listener doc:name="Listener" doc:id="03a875f3-8aeb-4dcb-974a-d2dfc8e709ca" config-ref="HTTP_Listener_config" path="/abcd"/>
