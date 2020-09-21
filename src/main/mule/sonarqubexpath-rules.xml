@@ -10,8 +10,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 http://www.mulesoft.org/schema/mule/ftp http://www.mulesoft.org/schema/mule/ftp/current/mule-ftp.xsd
 http://www.mulesoft.org/schema/mule/sftp http://www.mulesoft.org/schema/mule/sftp/current/mule-sftp.xsd
 http://www.mulesoft.org/schema/mule/email http://www.mulesoft.org/schema/mule/email/current/mule-email.xsd">
-	
-	
+	<error-handler name="sonarqubexpath-rulesError_Handler" doc:id="b6b27696-196d-4df6-8415-62cc585f9c92" />
 	<flow name="raml-connflow" doc:id="17300573-944a-4711-8c79-2b1cd68586a7" doc:description="bkhb">
 		<http:listener doc:name="Listener" doc:id="03a875f3-8aeb-4dcb-974a-d2dfc8e709ca" config-ref="HTTP_Listener_config" path="/abcd"/>
 		<logger level="DEBUG" doc:name="Logger" doc:id="4f3c87c8-b8a0-4c80-9e51-f1bba993dc8d" message="#[payload]"/>
@@ -22,7 +21,11 @@ http://www.mulesoft.org/schema/mule/email http://www.mulesoft.org/schema/mule/em
 		</choice>
 		<scatter-gather doc:name="Scatter-Gather" doc:id="a39dfcfd-ce33-4019-970f-95257f7e99b4" >
 		</scatter-gather>
+		<error-handler >
+			<on-error-continue enableNotifications="true" logException="true" doc:name="On Error Continue" doc:id="727bec0a-1dde-49f6-ae08-927aca5447e3" />
+		</error-handler>
 	
+
 </flow>
 	
 	<flow name="sonarqubexpath-rulesflow7" doc:id="67ad9083-56f3-4fcf-94d2-de7d7e9d16d5" >
