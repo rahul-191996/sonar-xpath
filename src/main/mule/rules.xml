@@ -10,7 +10,7 @@
 		<logger level="DEBUG" doc:name="Logger" doc:id="d3e4823d-b46d-4947-95da-3d8e3e2d1cf2" />
 	</flow>
 	<flow name="rulesFlow3" doc:id="3e2e45f7-64f2-4862-a96f-ba9456bb2c79" >
-		<logger level="DEBUG" doc:name="Logger" doc:id="2f925f13-e6c7-4941-9136-a5d99fb05a1a" message="abcd"/>
+		<logger level="ERROR" doc:name="Logger" doc:id="2f925f13-e6c7-4941-9136-a5d99fb05a1a" message="abcd"/>
 	</flow>
 	<flow name="rulesFlow2" doc:id="609d794b-600b-498b-8d7d-49a3d62cbc32" >
 		<logger level="DEBUG" doc:name="Logger" doc:id="ef13f632-1b3a-4e35-8809-76f6a41eb6c1" message="abcx"/>
