@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<flow name="rulesFlow" doc:id="1ebc5bb2-b232-4176-8161-4d2924b167de" >
+		<logger level="DEBUG" doc:name="Logger" doc:id="154af641-9fc4-4bfc-ae5d-91bf8b7a7a89" />
+	</flow>
+	<flow name="rulesFlow1" doc:id="2627d1fe-f12c-4eb5-9547-74753525199d" >
+		<logger level="DEBUG" doc:name="Logger" doc:id="d3e4823d-b46d-4947-95da-3d8e3e2d1cf2" />
+	</flow>
+	<flow name="rulesFlow3" doc:id="3e2e45f7-64f2-4862-a96f-ba9456bb2c79" >
+		<logger level="DEBUG" doc:name="Logger" doc:id="2f925f13-e6c7-4941-9136-a5d99fb05a1a" message="abcd"/>
+	</flow>
+	<flow name="rulesFlow2" doc:id="609d794b-600b-498b-8d7d-49a3d62cbc32" >
+		<logger level="DEBUG" doc:name="Logger" doc:id="ef13f632-1b3a-4e35-8809-76f6a41eb6c1" message="abcx"/>
+	</flow>
+</mule>

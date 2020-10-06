@@ -13,9 +13,9 @@ http://www.mulesoft.org/schema/mule/email http://www.mulesoft.org/schema/mule/em
 	<error-handler name="sonarqubexpath-rulesError_Handler" doc:id="b6b27696-196d-4df6-8415-62cc585f9c92" />
 	<flow name="raml-connflow" doc:id="17300573-944a-4711-8c79-2b1cd68586a7" doc:description="bkhb">
 		<http:listener doc:name="Listener" doc:id="03a875f3-8aeb-4dcb-974a-d2dfc8e709ca" config-ref="HTTP_Listener_config" path="/abcd"/>
-		<logger level="DEBUG" doc:name="Logger" doc:id="4f3c87c8-b8a0-4c80-9e51-f1bba993dc8d" message="#[payload]"/>
+		<logger level="ERROR" doc:name="Logger" doc:id="4f3c87c8-b8a0-4c80-9e51-f1bba993dc8d" message="#[payload]"/>
 		<choice doc:name="Choice" doc:id="2903ce2e-ad17-4fe0-b699-ca572104ad42" >
-			<when >
+			<when expression="#[null]">
 				<sftp:list doc:name="List" doc:id="cad34d75-16b5-4ee5-8ba3-d534530b8c28" config-ref="SFTP_Config"/>
 			</when>
 		</choice>
