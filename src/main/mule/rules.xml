@@ -11,7 +11,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 	</db:config>
 	<flow name="rulesFlow" doc:id="1ebc5bb2-b232-4176-8161-4d2924b167de" doc:description="zssbxh">
 		<logger level="DEBUG" doc:name="Logger vdf" doc:id="154af641-9fc4-4bfc-ae5d-91bf8b7a7a89" category="ssusu"/>
-		<async doc:name="Async" doc:id="cd35ef29-2ee6-407c-a047-9086515e6361" />
+		<async doc:name="Async is" doc:id="cd35ef29-2ee6-407c-a047-9086515e6361" />
 	</flow>
 	<flow name="rulesFlow1" doc:id= "2627d1fe-f12c-4eb5-9547-74753525199d" doc:description="jxk">
 		<logger level="DEBUG" doc:name="Logger cd" doc:id="d3e4823d-b46d-4947-95da-3d8e3e2d1cf2" category="sjjs"/>
@@ -24,7 +24,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 		</db:select>
 	</flow>
 	<flow name="rulesFlow2" doc:id="609d794b-600b-498b-8d7d-49a3d62cbc32" doc:description="Hhzh">
-		<logger level="DEBUG" doc:name="Logger is" doc:id="ef13f632-1b3a-4e35-8809-76f6a41eb6c1" message="abcx" category="dlelel"/>
+		<logger level="DEBUG" doc:name="Logger" doc:id="ef13f632-1b3a-4e35-8809-76f6a41eb6c1" message="abcx" category="dlelel"/>
 		<db:select doc:name="Select" doc:id="3d8ddce0-72bc-44bb-95c1-f5cd3f367387" >
 			<db:sql >${Db.query1}</db:sql>
 		</db:select>
