@@ -24,7 +24,7 @@ http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/cu
 		<async doc:name="Async" doc:id="fa1851cd-fc02-4250-bab2-1dcba831c8ea" />
 		<logger level="ERROR" doc:name="Logger" doc:id="2f925f13-e6c7-4941-9136-a5d99fb05a1a" message="#[payload]"/>
 		<db:select doc:name="Select" doc:id="e84f99ae-0fe1-470a-8355-001e4336c65a" config-ref="Database_Config">
-			<db:sql >${'DB.QUERY1'}</db:sql>
+			<db:sql >{'DB.QUERY1'}</db:sql>
 		</db:select>
 	</flow>
 	<flow name="rulesFlow2" doc:id="609d794b-600b-498b-8d7d-49a3d62cbc32" >
