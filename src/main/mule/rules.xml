@@ -18,16 +18,14 @@ http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/cu
 			<db:sql >${'DB.QUERY'}</db:sql>
 		</db:select>
 	</flow>
-	<flow name="rulesFlow4" doc:id="e6bcb2f2-790e-4425-bd60-e334c35d2025" >
-	</flow>
-	<flow name="rulesFlow3" doc:id="3e2e45f7-64f2-4862-a96f-ba9456bb2c79" >
+	<flow name="rulesFlow3" doc:id="3e2e45f7-64f2-4862-a96f-ba9456bb2c79" doc:description="hshhs">
 		<async doc:name="Async" doc:id="fa1851cd-fc02-4250-bab2-1dcba831c8ea" />
 		<logger level="ERROR" doc:name="Logger" doc:id="2f925f13-e6c7-4941-9136-a5d99fb05a1a" message="#[payload]"/>
 		<db:select doc:name="Select" doc:id="e84f99ae-0fe1-470a-8355-001e4336c65a" config-ref="Database_Config">
 			<db:sql >{'DB.QUERY1'}</db:sql>
 		</db:select>
 	</flow>
-	<flow name="rulesFlow2" doc:id="609d794b-600b-498b-8d7d-49a3d62cbc32" >
+	<flow name="rulesFlow2" doc:id="609d794b-600b-498b-8d7d-49a3d62cbc32" doc:description="Hhzh">
 		<logger level="DEBUG" doc:name="Logger" doc:id="ef13f632-1b3a-4e35-8809-76f6a41eb6c1" message="abcx"/>
 	</flow>
 </mule>
