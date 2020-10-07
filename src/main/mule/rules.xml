@@ -1,29 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:batch="http://www.mulesoft.org/schema/mule/batch"
-	xmlns="http://www.mulesoft.org/schema/mule/core"
-	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:batch="http://www.mulesoft.org/schema/mule/batch"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/batch/current/mule-batch.xsd
-http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd">
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
 	<db:config name="Database_Config" doc:name="Database Config" doc:id="f0bbbcf8-0935-43b6-b68b-fe2b073a317f" >
 		<db:data-source-connection />
 	</db:config>
 	<flow name="rulesFlow" doc:id="1ebc5bb2-b232-4176-8161-4d2924b167de" doc:description="zssbxh">
-		<logger level="DEBUG" doc:name="Logger" doc:id="154af641-9fc4-4bfc-ae5d-91bf8b7a7a89" />
+		<logger level="DEBUG" doc:name="Logger" doc:id="154af641-9fc4-4bfc-ae5d-91bf8b7a7a89" category="ssusu"/>
 		<async doc:name="Async" doc:id="cd35ef29-2ee6-407c-a047-9086515e6361" />
 	</flow>
 	<flow name="rulesFlow1" doc:id="2627d1fe-f12c-4eb5-9547-74753525199d" doc:description="jxk">
-		<logger level="DEBUG" doc:name="Logger" doc:id="d3e4823d-b46d-4947-95da-3d8e3e2d1cf2" />
-		<db:select doc:name="Select" doc:id="52e92a0e-4946-4526-97e6-63008b6bf97f" config-ref="Database_Config">
-			<db:sql >${'DB.QUERY'}</db:sql>
-		</db:select>
+		<logger level="DEBUG" doc:name="Logger" doc:id="d3e4823d-b46d-4947-95da-3d8e3e2d1cf2" category="sjjs"/>
 	</flow>
 	<flow name="rulesFlow3" doc:id="3e2e45f7-64f2-4862-a96f-ba9456bb2c79" doc:description="hshhs">
 		<async doc:name="Async" doc:id="fa1851cd-fc02-4250-bab2-1dcba831c8ea" />
-		<logger level="ERROR" doc:name="Logger" doc:id="2f925f13-e6c7-4941-9136-a5d99fb05a1a" message="#[payload]"/>
-		<db:select doc:name="Select" doc:id="e84f99ae-0fe1-470a-8355-001e4336c65a" config-ref="Database_Config">
-			<db:sql >${'DB.QUERY1'}</db:sql>
-		</db:select>
+		<logger level="ERROR" doc:name="Logger" doc:id="2f925f13-e6c7-4941-9136-a5d99fb05a1a" message="#[payload]" category="ddj"/>
 	</flow>
 	<flow name="rulesFlow2" doc:id="609d794b-600b-498b-8d7d-49a3d62cbc32" doc:description="Hhzh">
 		<logger level="DEBUG" doc:name="Logger" doc:id="ef13f632-1b3a-4e35-8809-76f6a41eb6c1" message="abcx"/>
