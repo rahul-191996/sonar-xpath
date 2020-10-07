@@ -17,10 +17,10 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 		<logger level="DEBUG" doc:name="Logger cd" doc:id="d3e4823d-b46d-4947-95da-3d8e3e2d1cf2" category="sjjs"/>
 	</flow>
 	<flow name="rulesFlow3" doc:id="3e2e45f7-64f2-4862-a96f-ba9456bb2c79" doc:description="hshhs">
-		<async doc:name="Async" doc:id="fa1851cd-fc02-4250-bab2-1dcba831c8ea" />
+		<async doc:name="Async are" doc:id="fa1851cd-fc02-4250-bab2-1dcba831c8ea" />
 		<logger level="ERROR" doc:name="Logger a" doc:id="2f925f13-e6c7-4941-9136-a5d99fb05a1a" message="#[payload]" category="ddj"/>
 		<db:select doc:name="Select" doc:id="aae45c18-3f4a-48b6-aac6-f5a13af5683a" >
-			<db:sql >{DB.QUERY}</db:sql>
+			<db:sql >${DB.QUERY}</db:sql>
 		</db:select>
 	</flow>
 	<flow name="rulesFlow2" doc:id="609d794b-600b-498b-8d7d-49a3d62cbc32" doc:description="Hhzh">
