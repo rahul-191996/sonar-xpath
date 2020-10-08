@@ -1,32 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:db="http://www.mulesoft.org/schema/mule/db"
-	xmlns:batch="http://www.mulesoft.org/schema/mule/batch"
-	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:batch="http://www.mulesoft.org/schema/mule/batch" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/batch http://www.mulesoft.org/schema/mule/batch/current/mule-batch.xsd
 http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
-http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
 	<db:config name="Database_Config" doc:name="Database Config" doc:id="f0bbbcf8-0935-43b6-b68b-fe2b073a317f" >
 		<db:data-source-connection />
 	</db:config>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="89e9a59f-2d50-464f-9317-88e588822841" >
+		<http:request-connection host="${req.host}" port="${req.port}" />
+	</http:request-config>
+	<http:request-config name="HTTP_Request_configuration1" doc:name="HTTP Request configuration" doc:id="3ab975d2-3fb5-4084-9701-2f802cb782fd" >
+		<http:request-connection host="localhost" port="8081" />
+	</http:request-config>
 	<flow name="rulesFlow" doc:id="1ebc5bb2-b232-4176-8161-4d2924b167de" doc:description="zssbxh">
 		<logger level="DEBUG" doc:name="Logger vdf" doc:id="154af641-9fc4-4bfc-ae5d-91bf8b7a7a89" category="ssusu"/>
+		<http:request method="GET" doc:name="Request" doc:id="005a0e28-d55d-45fd-95d7-0415e6268954" config-ref="HTTP_Request_configuration"/>
 		<async doc:name="Async" doc:id="cd35ef29-2ee6-407c-a047-9086515e6361" />
 	</flow>
 	<flow name="rulesFlow1" doc:id= "2627d1fe-f12c-4eb5-9547-74753525199d" doc:description="jxk">
 		<logger level="DEBUG" doc:name="Logger cd" doc:id="d3e4823d-b46d-4947-95da-3d8e3e2d1cf2" category="sjjs"/>
+		<http:request method="GET" doc:name="Request" doc:id="f9d8a9c1-fddf-42a8-aa6d-9b61275018ec" config-ref="HTTP_Request_configuration1"/>
 	</flow>
 	<flow name="rulesFlow3" doc:id="3e2e45f7-64f2-4862-a96f-ba9456bb2c79" doc:description="hshhs">
 		<async doc:name="Async" doc:id="fa1851cd-fc02-4250-bab2-1dcba831c8ea" />
 		<logger level="ERROR" doc:name="Logger a" doc:id="2f925f13-e6c7-4941-9136-a5d99fb05a1a" message="#[payload]" category="ddj"/>
-		<db:select doc:name="Select" doc:id="aae45c18-3f4a-48b6-aac6-f5a13af5683a" >
-			<db:sql >${DB.QUERY}</db:sql>
-		</db:select>
 	</flow>
 	<flow name="rulesFlow2" doc:id="609d794b-600b-498b-8d7d-49a3d62cbc32" doc:description="Hhzh">
 		<logger level="DEBUG" doc:name="Logger" doc:id="ef13f632-1b3a-4e35-8809-76f6a41eb6c1" message="abcx" category="dlelel"/>
-		<db:select doc:name="Select" doc:id="3d8ddce0-72bc-44bb-95c1-f5cd3f367387" >
-			<db:sql >${Db.query1}</db:sql>
-		</db:select>
 	</flow>
 </mule>
