@@ -14,7 +14,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<http:request-connection host="${req.host}" port="${req.port}" />
 	</http:request-config>
 	<http:request-config name="HTTP_Request_configuration1" doc:name="HTTP Request configuration" doc:id="3ab975d2-3fb5-4084-9701-2f802cb782fd" >
-		<http:request-connection host="localhost" port="8081" />
+		<http:request-connection host="$localhost" port="$8081" />
 	</http:request-config>
 	<flow name="rulesFlow" doc:id="1ebc5bb2-b232-4176-8161-4d2924b167de" doc:description="zssbxh">
 		<logger level="DEBUG" doc:name="Logger vdf" doc:id="154af641-9fc4-4bfc-ae5d-91bf8b7a7a89" category="ssusu"/>

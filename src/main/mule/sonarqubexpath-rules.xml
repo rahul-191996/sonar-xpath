@@ -12,8 +12,13 @@ http://www.mulesoft.org/schema/mule/sftp http://www.mulesoft.org/schema/mule/sft
 http://www.mulesoft.org/schema/mule/email http://www.mulesoft.org/schema/mule/email/current/mule-email.xsd">
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="8f4fbea4-a6bb-43c6-83c2-74c2a1d97cbe" >
 		<http:listener-connection host="0.0.0.0" port="8081" >
-			<reconnection failsDeployment="true" >
-				<reconnect />
+			
+		</http:listener-connection>
+	</http:listener-config>
+	<http:listener-config name="HTTP_Listener_config1" doc:name="HTTP Listener config" doc:id="0cb4d08c-f3bd-4c4e-8d11-bd13c9dc57ed" >
+		<http:listener-connection host="0.0.0.0" port="8081" >
+			<reconnection >
+				<reconnect-forever />
 			</reconnection>
 		</http:listener-connection>
 	</http:listener-config>
@@ -39,7 +44,7 @@ http://www.mulesoft.org/schema/mule/email http://www.mulesoft.org/schema/mule/em
 		<db:execute-script doc:name="Execute script " doc:id="4a0aa0af-2fb3-4312-85df-31676fe9b6f2" />
 	</flow>
 	<flow name="sonarqubexpath-rulesflow" doc:id="b7df9536-1bd2-4763-8897-05ea20c0b7f2" >
-		<http:listener doc:name="Listener" doc:id="1ecd5899-5910-45b7-92fb-ad8dd0e15813" config-ref="HTTP_Listener_config" path="/demo"/>
+		<http:listener doc:name="Listener" doc:id="1ecd5899-5910-45b7-92fb-ad8dd0e15813" config-ref="HTTP_Listener_config1" path="/demo"/>
 		<logger level="DEBUG" doc:name="Logger" doc:id="77ad60c3-cb56-4942-be6b-e87cd91b202e" message='#["a vhx"]'/>
 		<scatter-gather doc:name="Scatter-Gather" doc:id="ac5ce33d-f051-45e6-86ee-66e9844241fd" />
 		<choice doc:name="Choice" doc:id="0bd12702-146e-4e39-8d6b-eb8bd2d7c190" >
